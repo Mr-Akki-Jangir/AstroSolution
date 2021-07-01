@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Astro Solution</string>
+
+    <!-- Used in Codes -->
+    <string name="FromEmail">gopooja011@gmail.com</string>
+    <string name="FromEmailPass">bhargav12</string>
+    <string name="ToMail">newakshayjangir@gmail.com</string>
+
+    <!-- Used in layouts -->
+
+    <string name="contact_us">Contact Us</string>
+    <string name="enter_your_details">Enter Your Details</string>
+    <string name="name">Name</string>
+    <string name="please_tell_us_your_problem_below">Please Tell Us Your Problem Below</string>
+    <string name="relationship_nproblem">Relationship\nProblem</string>
+    <string name="husband_wife_ndispute">Husband - Wife\nDispute</string>
+    <string name="love_marriage_n_problem">Love Marriage\n Problem</string>
+    <string name="inter_cast_nmarriage_nsolution">Inter - Cast\nMarriage\nSolution</string>
+    <string name="family_dispute_nproblem">Family Dispute\nProblem</string>
+    <string name="extra_affair_nproblem">Extra Affair\nProblem</string>
+    <string name="business_nproblem_nsolution">Business\nProblem\nSolution</string>
+    <string name="remove_nnegative_nenergy">Remove\nNegative\nEnergy</string>
+    <string name="improve_your_nlove">Improve Your\nLove</string>
+
+    <!-- Used in Buttons -->
+
+    <string name="kundli">Kundli</string>
+    <string name="horoscope">Horoscope</string>
+    <string name="dainik_panchang">Dainik Panchang</string>
+
+
+</resources>
