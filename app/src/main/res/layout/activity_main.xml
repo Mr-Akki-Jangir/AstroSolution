@@ -9,102 +9,54 @@
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
+    <pl.droidsonroids.gif.GifImageView
+    android:id="@+id/h_src_gif_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:src="@drawable/snithandstarsmainscreen"/>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/h_src_toplyt"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:liftOnScroll="true">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/h_src_topAb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:navigationIcon="@drawable/f_menu"
+                app:navigationIconTint="@color/white"
+                app:title="Home"/>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
 
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        android:scrollIndicators="none"
+        android:scrollbars="none">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/h_src_toplyt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/h_nav_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:src="@drawable/f_menu"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/crt_scr"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Home"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/h_nav_icon"
-                    app:layout_constraintRight_toLeftOf="@id/h_top_r2"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/h_top_r2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <ImageView
-                        android:id="@+id/img_shathiyo"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/shathiyo"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/img_h_pandit"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:src="@drawable/panditwithlaptop"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/img_shathiyo"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
-
-                </LinearLayout>
-
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/h_slider"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="?attr/actionBarSize"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/h_src_toplyt">
+            app:layout_constraintTop_toTopOf="parent">
 
         </androidx.viewpager2.widget.ViewPager2>
 
@@ -117,415 +69,334 @@
             app:layout_constraintTop_toBottomOf="@id/h_slider">
 
             <LinearLayout
-                android:id="@+id/h2lyt_1"
+                android:id="@+id/HRow1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_rp"
+                    android:id="@+id/card1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:cardElevation="6dp"
-                    app:rippleColor="@color/black">
+                    app:cardBackgroundColor="#00000000"
+                    app:cardElevation="0dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:focusable="false">
 
                         <ImageView
-                            android:id="@+id/c1_img"
+                            android:id="@+id/card1img"
                             android:layout_width="80dp"
                             android:layout_height="80dp"
-                            android:clickable="false"
+                            android:src="@drawable/relationship_p"
                             android:focusable="false"
-                            android:src="@drawable/card_1_img"
-                            app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:elevation="6dp"
                             android:layout_marginTop="10dp"
-                            android:clickable="false"
-                            android:focusable="false"
                             android:gravity="center_horizontal"
+                            android:focusable="false"
                             android:text="@string/relationship_nproblem"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:textColor="@color/white"
+                            app:fontFamily="@font/open_sans_regular"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/c1_img" />
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+
+
                 </com.google.android.material.card.MaterialCardView>
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_2"
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/Card2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    app:cardElevation="6dp">
+                    android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:focusable="false"
+                        android:src="@drawable/husband_wife_d"/>
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/husband_wife_ndispute"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/open_sans_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
-                        <ImageView
-                            android:id="@+id/crp_2_img"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/hwdp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal"
-                            android:text="@string/husband_wife_ndispute"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/crp_2_img" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_3"
+                <LinearLayout
+                    android:id="@+id/Card3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    app:cardElevation="6dp"
-                    app:layout_constraintLeft_toRightOf="@id/card_2"
-                    app:layout_constraintTop_toBottomOf="@id/h_slider">
+                    android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:focusable="false"
+                        android:src="@drawable/improve_love"/>
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/love_marriage_n_problem"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/open_sans_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
-                        <ImageView
-                            android:id="@+id/crp_3_img"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/lmp2"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal"
-                            android:text="@string/love_marriage_n_problem"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/crp_3_img" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/h2lyt_2"
+                android:id="@+id/HRow2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/h2lyt_1">
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/HRow1">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_4"
+                <LinearLayout
+                    android:id="@+id/Card4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    app:cardElevation="6dp"
-                    app:layout_constraintLeft_toRightOf="@id/card_3"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/h_slider">
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:focusable="false"
+                        android:src="@drawable/extra_mrtial_affair"/>
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/extra_affair_nproblem"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/open_sans_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
-                        <ImageView
-                            android:id="@+id/crp4_img"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/incmp2"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal"
-                            android:text="@string/inter_cast_nmarriage_nsolution"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/crp4_img" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card5"
+                <LinearLayout
+                    android:id="@+id/Card5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:cardElevation="6dp"
-                    app:rippleColor="@color/black">
+                    android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:focusable="false"
+                        android:src="@drawable/inter_cast_marriage"/>
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/inter_cast_nmarriage_nsolution"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/open_sans_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
-                        <ImageView
-                            android:id="@+id/card5_img"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:src="@drawable/fdp2"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"/>
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal"
-                            android:justificationMode="inter_word"
-                            android:text="@string/family_dispute_nproblem"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/card5_img" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card6"
+                <LinearLayout
+                    android:id="@+id/Card6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:cardElevation="6dp"
-                    app:rippleColor="@color/black">
+                    android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:focusable="false"
+                        android:src="@drawable/family_d_p"/>
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/family_dispute_nproblem"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/open_sans_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
-                        <ImageView
-                            android:id="@+id/c6_img"
-                            android:layout_width="80dp"
-                            android:layout_height="90dp"
-                            android:src="@drawable/emap2"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal"
-                            android:justificationMode="inter_word"
-                            android:text="@string/extra_affair_nproblem"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/c6_img" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/h3lyt_3"
+                android:id="@+id/HRow3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/h2lyt_2">
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/HRow2">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card_7"
+                <LinearLayout
+                    android:id="@+id/Card7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    app:cardElevation="6dp"
-                    app:layout_constraintLeft_toRightOf="@id/card_3"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/h_slider">
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:focusable="false"
+                        android:src="@drawable/bussiness_p"/>
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/business_nproblem_nsolution"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/open_sans_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
-                        <ImageView
-                            android:id="@+id/crp7_img"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/_bp"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal"
-                            android:text="@string/business_nproblem_nsolution"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/crp7_img" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card8"
+                <LinearLayout
+                    android:id="@+id/Card8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:cardElevation="6dp"
-                    app:rippleColor="@color/black">
+                    android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:focusable="false"
+                        android:src="@drawable/negative_e_p"/>
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/remove_nnegative_nenergy"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/open_sans_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
-                        <ImageView
-                            android:id="@+id/c8_img"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/nep"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal"
-                            android:justificationMode="inter_word"
-                            android:text="@string/remove_nnegative_nenergy"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/c8_img" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/card9"
+                <LinearLayout
+                    android:id="@+id/Card9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="20dp"
-                    app:cardElevation="6dp"
-                    app:rippleColor="@color/black">
+                    android:orientation="vertical">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:focusable="false"
+                        android:src="@drawable/improve_love"/>
+
+                    <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="5dp">
+                        android:layout_marginTop="10dp"
+                        android:elevation="6dp"
+                        android:gravity="center_horizontal"
+                        android:text="@string/improve_your_nlove"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/open_sans_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/card1img"/>
 
-                        <ImageView
-                            android:id="@+id/c9_img"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:src="@drawable/impl"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:gravity="center_horizontal"
-                            android:justificationMode="inter_word"
-                            android:text="@string/improve_your_nlove"
-                            android:textColor="@color/black"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/c9_img" />
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 

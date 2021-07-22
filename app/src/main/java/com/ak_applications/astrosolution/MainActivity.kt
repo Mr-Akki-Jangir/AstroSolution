@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.StrictMode
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.core.view.GravityCompat
@@ -16,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.textfield.TextInputEditText
@@ -31,9 +35,10 @@ public class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var viewPager2: ViewPager2
     private val sliderHandler = Handler()
-
+    lateinit var card1: MaterialCardView
+    lateinit var AppBarNavIcon: ActionBarDrawerToggle
     lateinit var HomeDLyt: DrawerLayout
-    private lateinit var HSC1: CardView
+
     private lateinit var CustomFormMaterialDialogLayout: View
     private lateinit var CustomFormMaterialDialog: MaterialAlertDialogBuilder
 
@@ -43,14 +48,19 @@ public class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
 
+
         viewPager2 = findViewById(R.id.h_slider)
         val HNav: NavigationView = findViewById(R.id.hNavView)
         HomeDLyt = findViewById(R.id.h_drawerlyt)
-        val hNavIcon: ImageView = findViewById(R.id.h_nav_icon)
-        HSC1 = findViewById(R.id.card_rp)
+        card1 = findViewById(R.id.card1)
+        val TopAppBar: MaterialToolbar = findViewById(R.id.h_src_topAb)
 
-        hNavIcon.setOnClickListener(this)
-        HSC1.setOnClickListener(this)
+        setSupportActionBar(TopAppBar)
+        AppBarNavIcon = ActionBarDrawerToggle(this, HomeDLyt, R.string.NOpen, R.string.NClose)
+        AppBarNavIcon.syncState()
+
+
+         card1.setOnClickListener(this)
         CustomFormMaterialDialog = MaterialAlertDialogBuilder(this)
 
         HNav.setNavigationItemSelectedListener {
@@ -59,7 +69,6 @@ public class MainActivity : AppCompatActivity(), View.OnClickListener {
             true
 
         }
-
 
         val sliderh_slider_item: MutableList<h_slider_item> = ArrayList()
         sliderh_slider_item.add(h_slider_item(R.drawable.a1))
@@ -94,6 +103,12 @@ public class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (AppBarNavIcon.onOptionsItemSelected(item))
+            return true
+        return super.onOptionsItemSelected(item)
+    }
+
     private val sliderRunnable = Runnable {
         viewPager2.currentItem = viewPager2.currentItem + 1
 
@@ -111,14 +126,14 @@ public class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.h_nav_icon -> HomeDLyt.openDrawer(GravityCompat.START)
-            R.id.card_rp -> {
+
+            R.id.card1 -> {
                 CustomFormMaterialDialogLayout =
                     LayoutInflater.from(this).inflate(R.layout.custom_dialog_form_lyt, null, false)
                 LaunchCustomFromMaterialDialog()
-                val policy: StrictMode.ThreadPolicy =
-                    StrictMode.ThreadPolicy.Builder().permitAll().build()
-                StrictMode.setThreadPolicy(policy)
+//                val policy: StrictMode.ThreadPolicy =
+//                    StrictMode.ThreadPolicy.Builder().permitAll().build()
+//                StrictMode.setThreadPolicy(policy)
             }
         }
     }

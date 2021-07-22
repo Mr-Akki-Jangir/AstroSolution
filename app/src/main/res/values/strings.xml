@@ -5,6 +5,8 @@
     <string name="FromEmail">gopooja011@gmail.com</string>
     <string name="FromEmailPass">bhargav12</string>
     <string name="ToMail">bhargavshab800@gmail.com</string>
+    <string name="NOpen">Open</string>
+    <string name="NClose">Close</string>
 
     <!-- Used in layouts -->
 
