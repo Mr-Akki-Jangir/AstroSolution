@@ -1,28 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    >
 
     <item
-        android:id="@+id/nbtm_home"
         android:enabled="true"
         android:icon="@drawable/btm_custom_home_icon"
-        android:title="Home"/>
+        android:title="@string/home"/>
 
     <item
-        android:id="@+id/nbtm_wtsap"
         android:enabled="true"
         android:icon="@drawable/custom__btm_whatsapp_icon"
-        android:title="Whast App"/>
+        android:title="@string/whatsapp"/>
 
     <item
-        android:id="@+id/nbtm_viber"
         android:enabled="true"
         android:icon="@drawable/custom_btm_viber_icon"
-        android:title="Viber"/>
+        android:title="@string/viber"/>
 
     <item
-        android:id="@+id/nbtm_user"
         android:enabled="true"
         android:icon="@drawable/custom_btm_user_icon"
-        android:title="Profile"/>
+        android:title="@string/profile"/>
 </menu>

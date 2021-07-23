@@ -14,21 +14,38 @@
     <string name="enter_your_details">Enter Your Details</string>
     <string name="name">Name</string>
     <string name="please_tell_us_your_problem_below">Please Tell Us Your Problem Below</string>
-    <string name="relationship_nproblem">Relationship\nProblem</string>
-    <string name="husband_wife_ndispute">Husband - Wife\nDispute</string>
+    <string name="relationshipProblem">Relationship\nProblem</string>
+    <string name="husbandWifeDispute">Husband - Wife\nDispute</string>
     <string name="love_marriage_n_problem">Love Marriage\n Problem</string>
-    <string name="inter_cast_nmarriage_nsolution">Inter - Cast\nMarriage\nSolution</string>
-    <string name="family_dispute_nproblem">Family Dispute\nProblem</string>
-    <string name="extra_affair_nproblem">Extra Affair\nProblem</string>
-    <string name="business_nproblem_nsolution">Business\nProblem\nSolution</string>
-    <string name="remove_nnegative_nenergy">Remove\nNegative\nEnergy</string>
-    <string name="improve_your_nlove">Improve Your\nLove</string>
+    <string name="inter_cast_n_marriage_n_solution">Inter - Cast\nMarriage\nSolution</string>
+    <string name="family_dispute_n_problem">Family Dispute\nProblem</string>
+    <string name="extra_affair_n_problem">Extra Affair\nProblem</string>
+    <string name="business_n_problem_n_solution">Business\nProblem\nSolution</string>
+    <string name="remove_n_negative_n_energy">Remove\nNegative\nEnergy</string>
+    <string name="improve_your_n_love">Improve Your\nLove</string>
 
     <!-- Used in Buttons -->
 
-    <string name="kundli">Kundli</string>
+    <string name="kundalini">Kundalini</string>
     <string name="horoscope">Horoscope</string>
-    <string name="dainik_panchang">Dainik Panchang</string>
+    <string name="dailyPanchang">Daily Panchang</string>
+    <string name="home">Home</string>
+    <string name="whatsapp">Whats App</string>
+    <string name="viber">Viber</string>
+    <string name="profile">Profile</string>
+    <string name="PanditName">TaraChand</string>
+    <string name="taraGmail">tarachandastro@gmail.com</string>
+    <string name="NavMenu1">Account</string>
+    <string name="NavMenu2">Messages</string>
+    <string name="NavMenu3">Horoscope</string>
+    <string name="NavMenu4">Contact Us</string>
+    <string name="NavMenu5">Sing Out</string>
+    <string name="NavMenu6">Tell A Friend</string>
+    <string name="NavMenu7">Help And FeedBack</string>
+    <string name="FormFullNameIcon">Full Name</string>
+    <string name="FormPhoneNoIcon">Phone No.</string>
+    <string name="FormPhoneNo">Phone No.</string>
+    <string name="SplashLogoImage">Logo Image, Pandit With Laptop</string>
 
 
 </resources>

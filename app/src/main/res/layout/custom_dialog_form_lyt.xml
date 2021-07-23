@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/cfdt"
+        android:id="@+id/customFormDialogTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -15,19 +16,20 @@
         android:textSize="22sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="p" />
 
     <TextView
-        android:id="@+id/cfdst"
+        android:id="@+id/customFormDialogSubTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_your_details"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfdt"/>
+        app:layout_constraintTop_toBottomOf="@id/customFormDialogTitle"/>
 
     <LinearLayout
-        android:id="@+id/cfdr1"
+        android:id="@+id/customFormDialogRow1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -37,17 +39,16 @@
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfdst">
+        app:layout_constraintTop_toBottomOf="@id/customFormDialogSubTitle">
 
         <ImageView
-            android:id="@+id/cfdui"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:contentDescription="@string/FormFullNameIcon"
             android:src="@drawable/feather_outlined_user"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cfdfnlyt"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +57,7 @@
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cfdfn"
+                android:id="@+id/customFormDialogFullName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
@@ -69,7 +70,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/cfdr2"
+        android:id="@+id/customFormDialogRow2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -79,17 +80,16 @@
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfdr1">
+        app:layout_constraintTop_toBottomOf="@id/customFormDialogRow1">
 
         <ImageView
-            android:id="@+id/cfdpi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
+            android:contentDescription="@string/FormPhoneNoIcon"
             android:src="@drawable/feather_outlined_phone"/>
 
         <com.hbb20.CountryCodePicker
-            android:id="@+id/cfdccp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -101,16 +101,15 @@
             app:ccp_textSize="16sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cfdpnlyt"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:hint="21687319874651"
+            android:hint="@string/FormPhoneNo"
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cfdpn"
+                android:id="@+id/customFormDialogPhoneNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionNext"
@@ -125,7 +124,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/cfdr3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -135,17 +133,15 @@
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cfdr2">
+        app:layout_constraintTop_toBottomOf="@id/customFormDialogRow2">
 
         <TextView
-            android:id="@+id/cfdr3t"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/please_tell_us_your_problem_below"
             android:textColor="@color/black"/>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cfdpblmlyt"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -153,7 +149,7 @@
             app:boxStrokeColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cfdpblm"
+                android:id="@+id/customFormDialogProblem"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:imeOptions="actionNext"

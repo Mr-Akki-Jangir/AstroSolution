@@ -1,47 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group
-        android:id="@+id/group1"
-        android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/hNavItemAccount"
             android:checked="true"
             android:icon="@drawable/feather_outlined_user"
-            android:title="Account"/>
+            android:title="@string/NavMenu1"/>
         <item
-            android:id="@+id/hNavItemMsg"
             android:icon="@drawable/feather_message_square"
-            android:title="Messages" />
+            android:title="@string/NavMenu2" />
         <item
-            android:id="@+id/hNavItemHrsp"
             android:icon="@drawable/horoscope_icon_v1"
-            android:title="Horoscope" />
+            android:title="@string/NavMenu3" />
 
         <item
-            android:id="@+id/hNavItemContactUs"
             android:icon="@drawable/ic_contact_us_v1"
-            android:title="Contact Us"/>
+            android:title="@string/NavMenu4"/>
 
         <item
-            android:id="@+id/hNavItemSOut"
             android:icon="@drawable/feather_outlined_log_out"
-            android:title="Sing Out"/>
+            android:title="@string/NavMenu5"/>
     </group>
 
-    <group
-        android:id="@+id/group2"
-        android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/hNavItemShare"
             android:icon="@drawable/feather_outlined_share_2"
-            android:title="Tell A Friend"/>
+            android:title="@string/NavMenu6"/>
 
         <item
-            android:id="@+id/hNavItemHF"
             android:icon="@drawable/feather_outlined_help_circle"
-            android:title="Help And FeedBack"/>
+            android:title="@string/NavMenu7"/>
 
     </group>
 

@@ -3,24 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/h_drawerlyt"
+    android:id="@+id/hDrawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
-    <pl.droidsonroids.gif.GifImageView
-    android:id="@+id/h_src_gif_bg"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:src="@drawable/snithandstarsmainscreen"/>
+
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/h_src_toplyt"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:liftOnScroll="true">
@@ -98,6 +93,7 @@
                             android:layout_height="80dp"
                             android:src="@drawable/relationship_p"
                             android:focusable="false"
+                            android:contentDescription="@string/relationshipProblem"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintTop_toTopOf="parent"/>
@@ -109,8 +105,8 @@
                             android:layout_marginTop="10dp"
                             android:gravity="center_horizontal"
                             android:focusable="false"
-                            android:text="@string/relationship_nproblem"
-                            android:textColor="@color/white"
+                            android:text="@string/relationshipProblem"
+
                             app:fontFamily="@font/open_sans_regular"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
@@ -130,7 +126,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/Card2"
+                    android:id="@+id/card2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -141,6 +137,8 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:focusable="false"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/husbandWifeDispute"
                         android:src="@drawable/husband_wife_d"/>
 
                     <com.google.android.material.textview.MaterialTextView
@@ -149,8 +147,8 @@
                         android:layout_marginTop="10dp"
                         android:elevation="6dp"
                         android:gravity="center_horizontal"
-                        android:text="@string/husband_wife_ndispute"
-                        android:textColor="@color/white"
+                        android:text="@string/husbandWifeDispute"
+
                         app:fontFamily="@font/open_sans_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -160,7 +158,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/Card3"
+                    android:id="@+id/card3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -171,6 +169,8 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:focusable="false"
+                        android:layout_gravity="center_horizontal"
+                        android:contentDescription="@string/love_marriage_n_problem"
                         android:src="@drawable/improve_love"/>
 
                     <com.google.android.material.textview.MaterialTextView
@@ -180,7 +180,7 @@
                         android:elevation="6dp"
                         android:gravity="center_horizontal"
                         android:text="@string/love_marriage_n_problem"
-                        android:textColor="@color/white"
+
                         app:fontFamily="@font/open_sans_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -205,7 +205,7 @@
                 app:layout_constraintTop_toBottomOf="@id/HRow1">
 
                 <LinearLayout
-                    android:id="@+id/Card4"
+                    android:id="@+id/card4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -215,7 +215,8 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:focusable="false"
-                        android:src="@drawable/extra_mrtial_affair"/>
+                        android:contentDescription="@string/extra_affair_n_problem"
+                        android:src="@drawable/extra_martial_affair"/>
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
@@ -223,8 +224,8 @@
                         android:layout_marginTop="10dp"
                         android:elevation="6dp"
                         android:gravity="center_horizontal"
-                        android:text="@string/extra_affair_nproblem"
-                        android:textColor="@color/white"
+                        android:text="@string/extra_affair_n_problem"
+
                         app:fontFamily="@font/open_sans_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -234,7 +235,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/Card5"
+                    android:id="@+id/card5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -245,6 +246,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:focusable="false"
+                        android:contentDescription="@string/inter_cast_n_marriage_n_solution"
                         android:src="@drawable/inter_cast_marriage"/>
 
                     <com.google.android.material.textview.MaterialTextView
@@ -253,8 +255,8 @@
                         android:layout_marginTop="10dp"
                         android:elevation="6dp"
                         android:gravity="center_horizontal"
-                        android:text="@string/inter_cast_nmarriage_nsolution"
-                        android:textColor="@color/white"
+                        android:text="@string/inter_cast_n_marriage_n_solution"
+
                         app:fontFamily="@font/open_sans_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -264,7 +266,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/Card6"
+                    android:id="@+id/card6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -275,6 +277,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:focusable="false"
+                        android:contentDescription="@string/family_dispute_n_problem"
                         android:src="@drawable/family_d_p"/>
 
                     <com.google.android.material.textview.MaterialTextView
@@ -283,8 +286,8 @@
                         android:layout_marginTop="10dp"
                         android:elevation="6dp"
                         android:gravity="center_horizontal"
-                        android:text="@string/family_dispute_nproblem"
-                        android:textColor="@color/white"
+                        android:text="@string/family_dispute_n_problem"
+
                         app:fontFamily="@font/open_sans_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -297,7 +300,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/HRow3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -309,7 +311,7 @@
                 app:layout_constraintTop_toBottomOf="@id/HRow2">
 
                 <LinearLayout
-                    android:id="@+id/Card7"
+                    android:id="@+id/card7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -319,7 +321,8 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:focusable="false"
-                        android:src="@drawable/bussiness_p"/>
+                        android:contentDescription="@string/business_n_problem_n_solution"
+                        android:src="@drawable/business_p"/>
 
                     <com.google.android.material.textview.MaterialTextView
                         android:layout_width="wrap_content"
@@ -327,8 +330,8 @@
                         android:layout_marginTop="10dp"
                         android:elevation="6dp"
                         android:gravity="center_horizontal"
-                        android:text="@string/business_nproblem_nsolution"
-                        android:textColor="@color/white"
+                        android:text="@string/business_n_problem_n_solution"
+
                         app:fontFamily="@font/open_sans_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -338,7 +341,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/Card8"
+                    android:id="@+id/card8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -349,6 +352,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:focusable="false"
+                        android:contentDescription="@string/remove_n_negative_n_energy"
                         android:src="@drawable/negative_e_p"/>
 
                     <com.google.android.material.textview.MaterialTextView
@@ -357,8 +361,8 @@
                         android:layout_marginTop="10dp"
                         android:elevation="6dp"
                         android:gravity="center_horizontal"
-                        android:text="@string/remove_nnegative_nenergy"
-                        android:textColor="@color/white"
+                        android:text="@string/remove_n_negative_n_energy"
+
                         app:fontFamily="@font/open_sans_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -368,7 +372,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/Card9"
+                    android:id="@+id/card9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -379,6 +383,7 @@
                         android:layout_width="80dp"
                         android:layout_height="80dp"
                         android:focusable="false"
+                        android:contentDescription="@string/improve_your_n_love"
                         android:src="@drawable/improve_love"/>
 
                     <com.google.android.material.textview.MaterialTextView
@@ -387,8 +392,8 @@
                         android:layout_marginTop="10dp"
                         android:elevation="6dp"
                         android:gravity="center_horizontal"
-                        android:text="@string/improve_your_nlove"
-                        android:textColor="@color/white"
+                        android:text="@string/improve_your_n_love"
+
                         app:fontFamily="@font/open_sans_regular"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -402,23 +407,22 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-       <ImageView
+       <pl.droidsonroids.gif.GifImageView
            android:id="@+id/h_3_small_banner"
            android:layout_width="match_parent"
-           android:layout_height="60dp"
+           android:layout_height="80dp"
            android:layout_marginTop="20dp"
            android:scaleType="fitXY"
-           android:src="@drawable/sb1"
+           android:src="@drawable/small_bottom_banner"
            app:layout_constraintLeft_toLeftOf="parent"
            app:layout_constraintRight_toRightOf="parent"
            app:layout_constraintTop_toBottomOf="@id/h2_lyt"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/h4_horoscope"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="100dp"
+            android:layout_marginBottom="10dp"
             android:background="#00000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -426,7 +430,6 @@
             app:layout_constraintTop_toBottomOf="@id/h_3_small_banner">
 
             <LinearLayout
-                android:id="@+id/h3lyt_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
@@ -438,12 +441,11 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/h3_3btn_kundli"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="@string/kundli"
+                    android:text="@string/kundalini"
                     android:textColor="@color/black"
                     app:cornerRadius="5dp"
                     app:rippleColor="@color/white"
@@ -451,7 +453,6 @@
                     app:strokeWidth="1dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/h3_3btn_hroroscope"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -465,13 +466,12 @@
                     app:strokeWidth="1dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/h3_3btn_dp"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:padding="5dp"
-                    android:text="@string/dainik_panchang"
+                    android:text="@string/dailyPanchang"
                     android:textColor="@color/black"
                     app:cornerRadius="5dp"
                     app:rippleColor="@color/white"
@@ -490,7 +490,6 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/h_src_btm_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

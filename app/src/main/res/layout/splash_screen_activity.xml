@@ -14,10 +14,10 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
-        android:id="@+id/Splash_Img"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:src="@drawable/panditwithlaptop"
+        android:contentDescription="@string/SplashLogoImage"
+        android:src="@drawable/pandit_with_laptop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
