@@ -2,11 +2,11 @@
     <string name="app_name">Astro Solution</string>
 
     <!-- Used in Codes -->
-    <string name="FromEmail">gopooja011@gmail.com</string>
-    <string name="FromEmailPass">bhargav12</string>
-    <string name="ToMail">bhargavshab800@gmail.com</string>
-    <string name="NOpen">Open</string>
-    <string name="NClose">Close</string>
+    <string name="FromEmail" translatable="false">gopooja011@gmail.com</string>
+    <string name="FromEmailPass" translatable="false">bhargav12</string>
+    <string name="ToMail" translatable="false">bhargavshab800@gmail.com</string>
+    <string name="NOpen" translatable="false">Open</string>
+    <string name="NClose" translatable="false">Close</string>
 
     <!-- Used in layouts -->
 

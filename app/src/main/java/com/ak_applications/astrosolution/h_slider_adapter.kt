@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.makeramen.roundedimageview.RoundedImageView
 
 class h_slider_adapter internal constructor
     (
-       sliderh_slider_item: MutableList<h_slider_item>,
-        viewpager: ViewPager2
+    sliderh_slider_item: MutableList<h_slider_item>,
+    viewpager: ViewPager2
     ): RecyclerView.Adapter<h_slider_adapter.hSliderViewHold>()
 
 
@@ -23,9 +24,10 @@ class h_slider_adapter internal constructor
         this.viewpager2 = viewpager
     }
 
-    class hSliderViewHold(itemview: View) : RecyclerView.ViewHolder(itemview)
+    inner class hSliderViewHold(itemview: View) : RecyclerView.ViewHolder(itemview)
     {
         private val imageView: RoundedImageView = itemView.findViewById(R.id.hImageSlide)
+
 
         fun image(sliderh_slider_item: h_slider_item)
         {
@@ -44,6 +46,13 @@ class h_slider_adapter internal constructor
     }
 
     override fun onBindViewHolder(holder: hSliderViewHold, position: Int) {
+
+//         val imageView: RoundedImageView = holder.itemView.findViewById(R.id.hImageSlide)
+
+//        val url = sliderh_slider_item[position]
+
+//        Glide.with(holder.itemView).load(url).into(imageView)
+
         holder.image(sliderh_slider_item[position])
         if (position == sliderh_slider_item.size - 2)
         {
@@ -56,3 +65,5 @@ class h_slider_adapter internal constructor
         notifyDataSetChanged()
     }
 }
+
+

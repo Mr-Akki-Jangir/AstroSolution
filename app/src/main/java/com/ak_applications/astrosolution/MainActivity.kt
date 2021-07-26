@@ -1,17 +1,23 @@
 package com.ak_applications.astrosolution
 
 
+import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 //import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.annotation.MainThread
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.RecyclerView
@@ -23,15 +29,31 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
+import java.lang.Exception
 import java.util.*
 import javax.mail.*
 import javax.mail.internet.InternetAddress
 import javax.mail.internet.MimeMessage
 import kotlin.collections.ArrayList
 import kotlin.math.abs
+import kotlin.system.measureTimeMillis
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    val InternetRequest = 1001
+    val NetworkStatCode = 1002
+    val ExternalStgRQ = 1003
+
+    private lateinit var cardImgRef: StorageReference
 
     private lateinit var viewPager2: ViewPager2
     private val sliderHandler = Handler(Looper.getMainLooper())
@@ -48,6 +70,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
+
         when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             Configuration.UI_MODE_NIGHT_YES -> {
                 Toast.makeText(this, "Night Mode Enabled",Toast.LENGTH_LONG).show()
@@ -56,6 +81,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "No Night Mode",Toast.LENGTH_LONG).show()
             }
         }
+
+        checkForPermissions(android.Manifest.permission.READ_EXTERNAL_STORAGE, "External Storage", ExternalStgRQ)
 
         viewPager2 = findViewById(R.id.h_slider)
         val hNav: NavigationView = findViewById(R.id.hNavView)
@@ -97,12 +124,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
 
         val sliderHSliderItem: MutableList<h_slider_item> = ArrayList()
-        sliderHSliderItem.add(h_slider_item(R.drawable.a1))
-        sliderHSliderItem.add(h_slider_item(R.drawable.a2))
-        sliderHSliderItem.add(h_slider_item(R.drawable.slide2))
-        sliderHSliderItem.add(h_slider_item(R.drawable.slide3))
+        sliderHSliderItem.add(h_slider_item(R.drawable.topban1))
+        sliderHSliderItem.add(h_slider_item(R.drawable.topban2))
+        sliderHSliderItem.add(h_slider_item(R.drawable.appban3))
+
+
+
 
         viewPager2.adapter = h_slider_adapter(sliderHSliderItem, viewPager2)
+
+//        topSliderImageListFiles()
 
         viewPager2.clipToPadding = false
         viewPager2.clipChildren = false
@@ -122,11 +153,87 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 sliderHandler.removeCallbacks(sliderRunnable)
-                sliderHandler.postDelayed(sliderRunnable, 2000)
+                sliderHandler.postDelayed(sliderRunnable, 3000)
             }
         })
 
 
+    }
+
+    private fun checkForPermissions(permission: String, name: String, requestCode: Int){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        {
+            when{
+                ContextCompat.checkSelfPermission(applicationContext, permission) == PackageManager.PERMISSION_GRANTED -> {
+                    Toast.makeText(applicationContext, "$name Permission Granted", Toast.LENGTH_SHORT).show()
+                }
+                shouldShowRequestPermissionRationale(permission) -> showPermissionDialog(permission, name, requestCode)
+
+                else -> ActivityCompat.requestPermissions(this, arrayOf(permission), requestCode)
+            }
+        }
+    }
+
+//    private fun topSliderImageListFiles() = CoroutineScope(Dispatchers.IO).launch{
+//
+//        try {
+//            val image_top_slider = imageRef.child("images/").listAll().await()
+//            val top_images_urls = mutableListOf<String>()
+//            for(image in image_top_slider.items)
+//            {
+//                val url = image.downloadUrl.await()
+//                top_images_urls.add(url.toString())
+//            }
+//            withContext(Dispatchers.Main)
+//            {
+//                viewPager2.adapter = h_slider_adapter(top_images_urls, viewPager2)
+//            }
+//
+//        }catch (e: Exception) {
+//            withContext(Dispatchers.Main){
+//                Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_LONG).show()
+//                Log.e("FirebaseError", e.message.toString())
+//            }
+//        }
+//    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        //code for if user acceped the permission or refued
+        fun innerCheck(name: String)
+        {
+            if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED)
+            {
+                Toast.makeText(applicationContext, "$name permission refused", Toast.LENGTH_SHORT).show()
+            }else
+            {
+                Toast.makeText(applicationContext, "$name permission granted", Toast.LENGTH_LONG).show()
+            }
+        }
+        when(requestCode) {
+            InternetRequest -> innerCheck("Internet")
+            NetworkStatCode -> innerCheck("Network Access")
+            ExternalStgRQ -> innerCheck("External Storage")
+        }
+    }
+
+    private fun showPermissionDialog(permission: String, name: String, requestCode: Int)
+    {
+        val builder = MaterialAlertDialogBuilder(this)
+        builder.apply {
+            setMessage("Permission to access your $name is required to use this app")
+            setTitle("Permission Required")
+            setPositiveButton("Allow") { _, _ ->
+                ActivityCompat.requestPermissions(this@MainActivity, arrayOf(permission), requestCode)
+            }
+
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -154,6 +261,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id) {
 
             R.id.card1 -> {
+                checkForPermissions(android.Manifest.permission.INTERNET, "Internet", InternetRequest)
+                checkForPermissions(android.Manifest.permission.ACCESS_NETWORK_STATE, "Network Access", InternetRequest)
                 customFormAlertDialogLayout =
                     View.inflate(this, R.layout.custom_dialog_form_lyt, null)
 //                    LayoutInflater.from(this).inflate(R.layout.custom_dialog_form_lyt, null, false)
@@ -253,36 +362,48 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         customFormDialog.setView(customFormAlertDialogLayout)
             .setPositiveButton("Send") { _, _ ->
-                val myMail: String = getString(R.string.FromEmail)
-                val myPas: String = getString(R.string.FromEmailPass)
-                val uEmail: String =
-                    cDFName.text.toString() + cDFPhoneNo.text.toString() + cDFProblem.text.toString()
-                val prop = Properties()
-                prop["mail.smtp.auth"] = "true"
-                prop["mail.smtp.starttls.enable"] = "true"
-                prop["mail.smtp.host"] = "smtp.gmail.com"
-                prop["mail.smtp.port"] = "587"
-                val session =
-                    Session.getInstance(prop, object : Authenticator() {
-                        override fun getPasswordAuthentication(): PasswordAuthentication {
-                            return PasswordAuthentication(myMail, myPas)
+
+                CoroutineScope(Dispatchers.IO).launch {
+                    val sendMailJob = launch {
+                        val timeToTakeSendMail = measureTimeMillis {
+                            Log.e("Launching Mail Job", "$(Thread.currentThread().name)")
+                            val myMail: String = getString(R.string.FromEmail)
+                            val myPas: String = getString(R.string.FromEmailPass)
+                            val uEmail: String =
+                                cDFName.text.toString() + cDFPhoneNo.text.toString() + cDFProblem.text.toString()
+                            val prop = Properties()
+                            prop.put("mail.smtp.auth", "true")
+                            prop.put("mail.smtp.starttls.enable", "true")
+                            prop.put("mail.smtp.host", "smtp.gmail.com")
+                            prop.put("mail.smtp.port", "587")
+                            val session =
+                                Session.getInstance(prop, object : Authenticator() {
+                                    override fun getPasswordAuthentication(): PasswordAuthentication {
+                                        return PasswordAuthentication(myMail, myPas)
+                                    }
+                                })
+                            try {
+                                val message: Message = MimeMessage(session)
+                                message.setFrom(InternetAddress(myMail))
+                                message.setRecipients(
+                                    Message.RecipientType.TO,
+                                    InternetAddress.parse(getString(R.string.ToMail))
+                                )
+                                message.subject = "Coming From App"
+                                message.setText(uEmail)
+                                Transport.send(message)
+                                showSendSuccessMsg()
+
+                            } catch (e: MessagingException) {
+                                throw RuntimeException(e)
+                                e.printStackTrace()
+                            }
                         }
-                    })
-                try {
-                    val message: Message = MimeMessage(session)
-                    message.setFrom(InternetAddress(myMail))
-                    message.setRecipients(
-                        Message.RecipientType.TO,
-                        InternetAddress.parse(getString(R.string.ToMail))
-                    )
-                    message.subject = "Coming From App"
-                    message.setText(uEmail)
-                    Transport.send(message)
-                    Toast.makeText(applicationContext, "Send Success", Toast.LENGTH_LONG)
-                        .show()
-                } catch (e: MessagingException) {
-                    throw RuntimeException(e)
+                        Log.e("Send Mail time Taken", "$timeToTakeSendMail" )
+                    }
                 }
+
+
             }
 
 
@@ -291,4 +412,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }.show()
     }
 
+    private suspend fun showSendSuccessMsg() {
+        withContext(Main){
+            Toast.makeText(applicationContext, "Send Success", Toast.LENGTH_LONG)
+                .show()
+        }
+    }
+
 }
+
+

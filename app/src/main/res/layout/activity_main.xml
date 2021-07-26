@@ -446,10 +446,8 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="@string/kundalini"
-                    android:textColor="@color/black"
                     app:cornerRadius="5dp"
                     app:rippleColor="@color/white"
-                    app:strokeColor="@color/black"
                     app:strokeWidth="1dp"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -459,10 +457,10 @@
                     android:layout_marginStart="20dp"
                     android:padding="5dp"
                     android:text="@string/horoscope"
-                    android:textColor="@color/black"
+
                     app:cornerRadius="5dp"
                     app:rippleColor="@color/white"
-                    app:strokeColor="@color/black"
+
                     app:strokeWidth="1dp"/>
 
                 <com.google.android.material.button.MaterialButton
@@ -472,10 +470,10 @@
                     android:layout_marginStart="20dp"
                     android:padding="5dp"
                     android:text="@string/dailyPanchang"
-                    android:textColor="@color/black"
+
                     app:cornerRadius="5dp"
                     app:rippleColor="@color/white"
-                    app:strokeColor="@color/black"
+
                     app:strokeWidth="1dp"/>
 
             </LinearLayout>
